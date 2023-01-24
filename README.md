@@ -10,13 +10,13 @@ In this walkthrough we will break it down into two parts, setting up AAD and the
 In this section we will create the App Registration in AAD. This example uses a redirect to authenticate. What that means is that when the app loads, it will redirect to AAD, do the auth then “redirect” back to your app. The MSAL libraries will pick up the JWT token and confirm login. 
 <br><br>
 ## 1) Navigate to AAD
-![alt text](./screen/1.png)
+![alt text](./Screen/1.png)
 <br><br>
 ## 2) Select "App Registrations"
-![alt text](./screen/2.png)
+![alt text](./Screen/2.png)
 <br><br>
 ## 3) Click + New Registration
-![alt text](./screen/3.png)
+![alt text](./Screen/3.png)
 <br><br>
 ## 4) Create a unique name for your app
 ![alt text](./screen/4.png)
