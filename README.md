@@ -10,22 +10,22 @@ In this walkthrough we will break it down into two parts, setting up AAD and the
 In this section we will create the App Registration in AAD. This example uses a redirect to authenticate. What that means is that when the app loads, it will redirect to AAD, do the auth then “redirect” back to your app. The MSAL libraries will pick up the JWT token and confirm login. 
 <br><br>
 ## 1) Navigate to AAD
-![alt text](screen/1.png)
+![alt text](./screen/1.png)
 <br><br>
 ## 2) Select "App Registrations"
-![alt text](screen/2.png)
+![alt text](./screen/2.png)
 <br><br>
 ## 3) Click + New Registration
-![alt text](screen/3.png)
+![alt text](./screen/3.png)
 <br><br>
 ## 4) Create a unique name for your app
-![alt text](screen/4.png)
+![alt text](./screen/4.png)
 <br><br>
 ## 5) Select single-page application and set the React app default URL. In this demo it will redirect back to your local host. For production you will have to specify your main DNS.
-![alt text](screen/5.png)
+![alt text](./screen/5.png)
 <br><br>
 ## 6) Copy the ClientID and the TenantID
-![alt text](screen/6.png)
+![alt text](./screen/6.png)
 <br><br>
 <br><br>
 # Part Two creating the app
@@ -44,12 +44,12 @@ Below are the steps to creating an app from scratch that uses MSAL and AAD.
 ## 3) Create an auth folder under src
 This is a good habit to form, create a folder to keep your directories organized.
 
-![alt text](screen/a1.png)
+![alt text](./screen/a1.png)
 <br><br>
 ## 4) Copy the authConfig.tsx file
 Copy this file from the auth folder. You can create it and copy and past or clone it down. It is the default authCongfig from the MSFT MSAL examples.
 
-![alt text](screen/a2.png)
+![alt text](./screen/a2.png)
 <br><br>
 ## 5) Set the values from step 6 part 1
 The ClinetID goes in the ClientID field. The Authority is the login url with your TenantID appended:
@@ -57,7 +57,7 @@ The ClinetID goes in the ClientID field. The Authority is the login url with you
 https://login.microsoftonline.com/GUID
 </pre>
 Example:
-![alt text](screen/a6.png)
+![alt text](./screen/a6.png)
 <br><br>
 ## 6) Index.tsx Changes
 These are the changed needed to the Index.tsx. Once again please reivew the code in this repo.
@@ -67,7 +67,7 @@ a) Add a reference to msalConfig and MsalProvider
 b) Add a const for the msalInstance
 <br><br>
 c) Wrap the app with the MsalProvider
-![alt text](screen/a3.png)
+![alt text](./screen/a3.png)
 
 
 ## 7) App.tsx Changes
@@ -84,7 +84,7 @@ d) Create a hook to set the User. In this example we will capture the email addr
 e) Create a render function that will keep trying to extract the username from useMsal. In practice this might loop a few times but it will assure you have a valid user before the app is ready. You can also do you API calls at this point (after user has been set). This approach also allows you to call child components as props.
 <br><br>
 f) On line 22 we check to see if m_strUser had been set (will be the email address). If it is, we render the screen with the EMail address (your app is ready render that). If user is empty, we call the Render function and show "Please Wait...". Once again the React engine might refresh a few times but this is required to assure we have a valid user right away. 
-![alt text](screen/a4.png)
+![alt text](./screen/a4.png)
 
 # End result!
-![alt text](screen/a7.png)
+![alt text](./screen/a7.png)
